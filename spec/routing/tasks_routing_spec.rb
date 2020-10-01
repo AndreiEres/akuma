@@ -10,5 +10,6 @@ RSpec.describe TasksController, type: :routing do
     it { is_expected.to route(:put, "/tasks/1").to(action: :update, id: "1") }
     it { is_expected.to route(:patch, "/tasks/1").to(action: :update, id: "1") }
     it { is_expected.to route(:delete, "/tasks/1").to(action: :destroy, id: "1") }
+    it { is_expected.to route(:get, "/task_suggestion").to(action: :suggest) }
   end
 end

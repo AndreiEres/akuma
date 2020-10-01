@@ -35,6 +35,10 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  def suggest
+    nil
+  end
+
   private
 
   def set_task
