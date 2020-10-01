@@ -92,4 +92,17 @@ RSpec.describe "/tasks", type: :request do
       end.to change(Task, :count).by(-1)
     end
   end
+
+  describe "GET /suggest" do
+    let(:task) { build(:task) }
+    let(:suggester) { instance_double(TaskSuggester, suggest: task) }
+
+    before { allow(TaskSuggester).to receive(:new).and_return(suggester) }
+
+    it "renders a JSON response with suggested task" do
+      get task_suggestion_url
+
+      expect(response.body).to eq task.to_json
+    end
+  end
 end

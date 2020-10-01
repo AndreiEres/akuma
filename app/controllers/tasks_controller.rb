@@ -36,7 +36,9 @@ class TasksController < ApplicationController
   end
 
   def suggest
-    nil
+    @task = TaskSuggester.new.suggest
+
+    render json: @task
   end
 
   private
