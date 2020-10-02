@@ -1,24 +1,34 @@
-# README
+# Akuma
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Task management
 
-* Ruby version
+Get all tasks:
+```bash
+curl https://switchup-akuma.herokuapp.com/tasks
+```
 
-* System dependencies
+Get task by id:
+```bash
+curl https://switchup-akuma.herokuapp.com/tasks/1
+```
 
-* Configuration
+Create task:
+```bash
+curl https://switchup-akuma.herokuapp.com/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"task":{"title":"First Task","issuer":"default"}}'
+```
 
-* Database creation
+Change task by id:
+```bash
+curl https://switchup-akuma.herokuapp.com/tasks/1 \
+  -X PATCH \
+  -H "Content-Type: application/json" \
+  -d '{"task":{"status":"assigned"}}'
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ask for task suggestion:
+```bash
+curl https://switchup-akuma.herokuapp.com/task_suggestion
+```
